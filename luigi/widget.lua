@@ -711,7 +711,11 @@ function Widget:getRectangle (useMargin, usePadding)
     if usePadding then
         shrink(self.padding or 0)
     end
-    return math.floor(x), math.floor(y), math.floor(w), math.floor(h)
+    x = math.max(math.floor(x),0)
+    y = math.max(math.floor(y),0)
+    w = math.max(math.floor(w),0)
+    h = math.max(math.floor(h),0)
+    return x, y, w, h
 end
 
 --[[--
